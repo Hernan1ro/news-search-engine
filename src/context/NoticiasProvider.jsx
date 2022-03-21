@@ -12,12 +12,11 @@ const NoticiasProvider = ({ children }) => {
       const url = `https://newsapi.org/v2/top-headlines?country=co&category${categoria}&apikey=${
         import.meta.env.VITE_API_KEY
       }`;
-
       const { data } = await axios(url);
       setNoticias(data.articles);
     };
     consultarAPI();
-  }, [categoria]);
+  }, [categoria, noticias]);
 
   const handleChange = (e) => {
     setCategoria(e.target.value);

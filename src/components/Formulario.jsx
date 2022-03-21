@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  FormControl,
-  InputLabel,
-  Select,
-  MenuItem,
-  Button,
-  Box,
-} from "@mui/material";
+import { FormControl, InputLabel, Select, MenuItem } from "@mui/material";
 import useNoticias from "../hooks/useNoticias";
 
 const CATEGORIAS = [
@@ -25,18 +18,17 @@ const Formulario = () => {
     <form action="">
       <FormControl fullWidth>
         <InputLabel>Categorías</InputLabel>
-        <Select label="Categoría" onChange={handleChange} value={categoria}>
+        <Select
+          label="Categoría"
+          onChange={(e) => handleChange(e)}
+          value={categoria}
+        >
           {CATEGORIAS.map((categoria) => (
             <MenuItem key={categoria.value} value={categoria.value}>
               {categoria.label}
             </MenuItem>
           ))}
         </Select>
-        <Box sx={{ marginTop: 2 }}>
-          <Button fullWidth variant="contained" color="primary">
-            Buscar Noticias
-          </Button>
-        </Box>
       </FormControl>
     </form>
   );
